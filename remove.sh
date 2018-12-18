@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 read -s -p "Enter MySql password: " ROOTPASS
-
-echo -n "Enter username to delete:"
+echo
+echo "Enter username to delete:"
 read USERNAME
 
 mysql -uroot --password=$ROOTPASS -e "DROP USER $USERNAME@localhost"

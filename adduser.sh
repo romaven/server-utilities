@@ -8,8 +8,8 @@ PASSWORD=`< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c12`
 ##############
 
 read -s -p "Enter MySql password: " ROOTPASS
-
-echo -n "Enter username for site and database:"
+echo
+echo "Enter username for site and database:"
 read USERNAME
 
 if grep -c "^$USERNAME:" /etc/passwd > /dev/null 2>&1; then
