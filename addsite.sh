@@ -10,7 +10,7 @@ read -s ROOTPASS
 echo "Enter username for site and database:"
 read USERNAME
 
-if grep -c '^$USERNAME:' /etc/passwd > /dev/null 2>&1; then
+if grep -c "^$USERNAME:" /etc/passwd > /dev/null 2>&1; then
 	echo "User $USERNAME exist"
 else
 	echo "User $USERNAME doesn't exists"

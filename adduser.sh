@@ -13,7 +13,7 @@ read USERNAME
 echo "Enter MySql password:"
 read -s ROOTPASS
 
-if grep -c '^$USERNAME:' /etc/passwd > /dev/null 2>&1; then
+if grep -c "^$USERNAME:" /etc/passwd > /dev/null 2>&1; then
 	echo "User already exists"
 	exit 1
 fi
