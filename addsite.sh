@@ -6,7 +6,7 @@ TIMEZONE='Europe/Moscow'
 
 read -s -p "Enter MySql password: " ROOTPASS
 
-echo "Enter username for site and database:"
+echo -n "Enter username for site and database:"
 read USERNAME
 
 if grep -c "^$USERNAME:" /etc/passwd > /dev/null 2>&1; then
