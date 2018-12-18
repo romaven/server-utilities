@@ -10,10 +10,10 @@ read ROOTPASS
 echo "Enter username for site and database:"
 read USERNAME
 
-if grep -c '^$USERNAME:' /etc/passwd; then
-	echo "User $USERNAME exists"
+if grep -c '^$USERNAME:' /etc/passwd > /dev/null 2>&1; then
+	echo "User $USERNAME exist"
 else
-	echo "User don't exists"
+	echo "User $USERNAME don't exists"
 	echo "Create new user first"
 	exit 1
 fi
