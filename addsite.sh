@@ -5,7 +5,7 @@ TIMEZONE='Europe/Moscow'
 ##############
 
 echo "Enter MySql password:"
-read ROOTPASS
+read -s ROOTPASS
 
 echo "Enter username for site and database:"
 read USERNAME
@@ -13,7 +13,7 @@ read USERNAME
 if grep -c '^$USERNAME:' /etc/passwd > /dev/null 2>&1; then
 	echo "User $USERNAME exist"
 else
-	echo "User $USERNAME don't exists"
+	echo "User $USERNAME doesn't exists"
 	echo "Create new user first"
 	exit 1
 fi

@@ -11,7 +11,7 @@ echo "Enter username for site and database:"
 read USERNAME
 
 echo "Enter MySql password:"
-read ROOTPASS
+read -s ROOTPASS
 
 if grep -c '^$USERNAME:' /etc/passwd > /dev/null 2>&1; then
 	echo "User already exists"
