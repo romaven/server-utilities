@@ -3,7 +3,6 @@
 TIMEZONE='Europe/Moscow'
 
 MYSQLPASS=`< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c12`
-SFTPPASS=`< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c12`
 PASSWORD=`< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c12`
 
 ##############
@@ -11,7 +10,7 @@ PASSWORD=`< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c12`
 echo "Enter username for site and database:"
 read USERNAME
 
-if grep -c '^$USERNAME:' /etc/passwd; then
+if grep -c '^$USERNAME:' /etc/passwd > /dev/null 2>&1; then
 	echo "User already exists"
 	exit 1
 fi
@@ -19,13 +18,13 @@ fi
 ##############
 
 echo "Creating user and home directory..."
-useradd $USERNAME -m -G sftp -s "/bin/false" -d "/var/www/$USERNAME"
+useradd $USERNAME -m -s "/bin/false" -d "/var/www/$USERNAME"
 if [ "$?" -ne 0 ]; then
 	echo "Can't add user"
 	exit 1
 fi
-echo $SFTPPASS > ./tmp
-echo $SFTPPASS >> ./tmp
+echo $PASSWORD > ./tmp
+echo $PASSWORD >> ./tmp
 cat ./tmp | passwd $USERNAME
 rm ./tmp
 
@@ -93,7 +92,6 @@ chmod +x /var/www/$USERNAME/chmod
 
 echo "Done.
 User: $USERNAME
-Password: $PASSWORD
-SFTP password: $SFTPPASS" > /var/www/$USERNAME/pass.txt
+Password: $PASSWORD" > /var/www/$USERNAME/pass.txt
 
 cat /var/www/$USERNAME/pass.txt
