@@ -1,7 +1,6 @@
 #!/bin/bash
 
-echo "Enter MySql password:"
-read -s ROOTPASS
+read -s -p "Enter MySql password: " ROOTPASS
 
 echo "Enter username to delete:"
 read USERNAME

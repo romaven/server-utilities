@@ -4,8 +4,7 @@ TIMEZONE='Europe/Moscow'
 
 ##############
 
-echo "Enter MySql password:"
-read -s ROOTPASS
+read -s -p "Enter MySql password: " ROOTPASS
 
 echo "Enter username for site and database:"
 read USERNAME
