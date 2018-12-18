@@ -10,6 +10,9 @@ PASSWORD=`< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c12`
 echo "Enter username for site and database:"
 read USERNAME
 
+echo "Enter MySql password:"
+read ROOTPASS
+
 if grep -c '^$USERNAME:' /etc/passwd > /dev/null 2>&1; then
 	echo "User already exists"
 	exit 1
