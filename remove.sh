@@ -4,9 +4,9 @@ read -s -p "Enter MySql password: " ROOTPASS
 echo
 echo "Enter username to delete:"
 read USERNAME
-
+echo
+echo "You must drop all user databases manualy"
 mysql -uroot --password=$ROOTPASS -e "DROP USER $USERNAME@localhost"
-mysql -uroot --password=$ROOTPASS -e "DROP DATABASE $USERNAME"
 rm -f /etc/nginx/sites-enabled/$USERNAME.conf
 rm -f /etc/nginx/sites-available/$USERNAME.conf
 rm -f /etc/php/7.2/fpm/pool.d/$USERNAME.conf
